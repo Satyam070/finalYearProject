@@ -1,0 +1,31 @@
+.App {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .language-selector {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+  }
+  
+  .image-upload {
+    margin: 20px;
+  }
+  
+  .drag-drop {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .translation-block {
+    margin-top: 20px;
+  }
+  
+  .extracted-text, .translated-text {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
