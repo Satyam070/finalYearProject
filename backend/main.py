@@ -30,4 +30,3 @@ async def translate(request: TranslationRequest):
     translated = translator.translate(request.text, src=request.src_lang, dest=request.dest_lang)
     return {"translated": translated.text}
 
-# To run the server: uvicorn main:app --reload
