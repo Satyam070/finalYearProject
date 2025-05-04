@@ -1,36 +1,100 @@
 /* styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Background Grid */
+.bg-grid {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Animations */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Button Styling */
 button {
-  @apply px-4 py-2 rounded-lg font-medium text-white bg-blue-500 hover:bg-blue-600 transition-all duration-200;
+  @apply px-4 py-2 rounded-lg font-medium text-white bg-blue-500 hover:bg-blue-600 transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-md;
 }
 
 .App {
-    text-align: center;
-    /* margin: 20px; */
-  }
-  
-  .language-selector {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px;
-  }
-  
-  .image-upload {
-    margin: 20px;
-  }
-  
-  .drag-drop {
-    border: 2px dashed #ccc;
-    padding: 20px;
-    margin: 20px;
-  }
-  
-  .translation-block {
-    margin-top: 20px;
-  }
-  
-  .extracted-text, .translated-text {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-  
+  text-align: center;
+}
+
+.language-selector {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl shadow-md;
+}
+
+.language-selector label {
+  @apply block text-sm font-medium text-gray-700 mb-2;
+}
+
+.language-selector select {
+  @apply block w-full px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:border-blue-400 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-colors;
+}
+
+.image-upload {
+  @apply mt-8 bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-xl shadow-inner;
+}
+
+.image-upload input[type="file"] {
+  @apply w-full p-3 text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-600 hover:file:bg-blue-100 cursor-pointer border rounded-lg;
+}
+
+.drag-drop {
+  @apply mt-6 border-2 border-dashed border-blue-300 rounded-xl p-8 flex flex-col items-center justify-center transition-all duration-300 hover:border-blue-500 bg-white bg-opacity-60;
+}
+
+.drag-drop p {
+  @apply text-gray-500 mb-2;
+}
+
+.translation-block {
+  @apply mt-8;
+}
+
+.extracted-text, .translated-text {
+  @apply p-4 rounded-lg text-left;
+}
+
+.extracted-text p, .translated-text p {
+  @apply text-gray-700 mt-2;
+}
+
+/* Animation Classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shine {
+  background: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-size: 200% auto;
+  animation: shine 1.5s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s infinite;
+}
